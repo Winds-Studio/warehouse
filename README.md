@@ -35,7 +35,7 @@ These variables can also be set in a `.env` file in the runtime directory.
 
 ## Credits
 
-This application is maintained by Pyro Host Inc., while we do not provide direct support for this software, we welcome contributions, bug reports, and feature requests. Get community support on our [Discord server](https://discord.gg/pyrohost)!
+This application is maintained by Pyro Inc., while we do not provide direct support for this software, we welcome contributions, bug reports, and feature requests. Get community support on our [Discord server](https://discord.gg/pyrohost)!
 
 ## License
 
