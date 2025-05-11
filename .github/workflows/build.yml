@@ -1,0 +1,28 @@
+name: Build house
+
+on:
+  push:
+
+jobs:
+  build:
+    name: Build
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: cargo build --release
+
+      - name: Prepare for release
+        run: |
+          gh release delete dev --cleanup-tag -y -R "${{ github.repository }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BUILD_NUMBER: ${{ env.BUILD_NUMBER }}
+      - name: Release warehouse
+        uses: marvinpinto/action-automatic-releases@master
+        with:
+          title: "warehouse"
+          automatic_release_tag: "dev"
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          files: "target/release/*"
+          prerelease: true
